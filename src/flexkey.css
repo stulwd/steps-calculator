@@ -1,0 +1,114 @@
+/*!
+ * 
+ *   simple-keyboard v2.21.0
+ *   https://github.com/hodgef/simple-keyboard
+ * 
+ *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
+ * 
+ *   This source code is licensed under the MIT license found in the
+ *   LICENSE file in the root directory of this source tree.
+ *   
+ */body,html{
+    margin:0;padding:0
+}
+ 
+
+    
+.flexkey .hg-row{
+    height: 90px;
+    display:-webkit-flex;
+    display:flex
+}
+    
+.flexkey .hg-row:not(:last-child){
+    margin-bottom:5px
+}
+
+.flexkey .hg-row .hg-button-container,.flexkey .hg-row .hg-button:not(:last-child){height: 90px;
+    margin-right:5px
+}
+
+
+
+.flexkey .hg-row>div:last-child{
+    margin-right:0
+}
+
+.flexkey .hg-row .hg-button-container{
+    display:-webkit-flex;
+    display:flex
+}
+
+.flexkey .hg-button{height: 90px;
+    display:inline-block;
+    -webkit-flex-grow:1;
+    flex-grow:1;cursor:pointer
+}
+
+.flexkey .hg-button span{
+    pointer-events:none;
+    font-size: 30px
+}
+
+.flexkey.hg-theme-default{
+    background-color:rgba(0,0,0,.1);
+    padding:5px;
+    border-radius:5px
+}
+
+.flexkey.hg-theme-default .hg-button{
+    box-shadow:0 0 3px -1px rgba(0,0,0,.3);
+    height:90px;
+    border-radius:5px;
+    box-sizing:border-box;
+    padding:5px;
+    background:#fff;
+    border-bottom:1px solid #b5b5b5;
+    cursor:pointer;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-align-items:center;
+    align-items:center;
+    -webkit-justify-content:center;
+    justify-content:center
+}
+
+.flexkey button.hg-button{
+    border-width:0;
+    outline:0;
+    font-size:inherit
+}
+
+.flexkey.hg-theme-default:not(.hg-touch-events) .hg-button:active{
+    background:#e4e4e4
+}
+
+.flexkey.hg-theme-default.hg-layout-numeric .hg-button{
+    width:33.3%;
+    height:60px;
+    -webkit-align-items:center;
+    align-items:center;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-justify-content:center;
+    justify-content:center
+}
+
+.flexkey.hg-theme-default .hg-button.hg-button-numpadadd,.flexkey.hg-theme-default .hg-button.hg-button-numpadenter{height:85px}
+
+.flexkey.hg-theme-default .hg-button.hg-button-numpad0{width:105px}
+
+.flexkey.hg-theme-default .hg-button.hg-button-com{max-width:85px}
+
+.flexkey.hg-theme-default .hg-button.hg-standardBtn.hg-button-at{max-width:45px}
+
+.flexkey.hg-theme-default .hg-button.hg-selectedButton{background:rgba(5,25,70,.53);color:#fff}
+
+.flexkey.hg-theme-default .hg-button.hg-standardBtn[data-skbtn=".com"]{max-width:82px}
+
+.flexkey.hg-theme-default .hg-button.hg-standardBtn[data-skbtn="@"]{max-width:60px}
+/*# sourceMappingURL=index.css.map */
+.flexkey .hg-row .hg-button.subjects {
+    background: #bfe7e9;
+    color: white;
+}

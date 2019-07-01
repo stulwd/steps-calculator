@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8"> 
+        <script src="node_modules/simple-keyboard/build/index.js"></script>
+        <!-- <link rel="stylesheet" href="node_modules/simple-keyboard/build/css/index.css"> -->
+        <link rel="stylesheet" href="src/login.css" />
+    </head>
+
+    <body>
+
+        <form action="">
+        wifi:<input id='ssid' type="text" onfocus="focusSsid()"><br>
+        pwd: <input id='pwd' type="text" onfocus="focusPwd()">
+        </form>
+        <button type="button" onclick="login()">login</button>
+        <div class="simple-keyboard"></div>
+
+
+        <script>
+            const { ipcRenderer } = require('electron')
+            var WiFiControl = require('wifi-control')
+
+
+            const wifiConnectionStatus = (status) => {
+                ipcRenderer.send('isWifiConnected', status)
+            }
+
+            WiFiControl.init({
+                    debug: true
+            });
+            var ifaceState = WiFiControl.getIfaceState();
+                console.log('ifaceState:',ifaceState)
+                // if( 'ssid' in ifaceState ){
+                if( ifaceState.msg == 'Successfully acquired state of network interface wlan.' ){
+                    wifiConnectionStatus(true)
+            }
+
+            setInterval(() => {
+                var ifaceState = WiFiControl.getIfaceState();
+                console.log('ifaceState:',ifaceState)
+                // if( 'ssid' in ifaceState ){
+                if( ifaceState.msg == 'Successfully acquired state of network interface wlan.' ){
+                    wifiConnectionStatus(true)
+                }
+            }, 3000);
+            
+            function login(){  
+                // wifi-connection
+                var _ap = {
+                    ssid : document.getElementById('ssid').value,
+                    password : document.getElementById('pwd').value
+                }
+                var results = WiFiControl.connectToAP(_ap); 
+                console.log('results:',results)
+
+                if(results.success == true ){
+                    wifiConnectionStatus(true)
+                }
+                else wifiConnectionStatus(false)
+            }
+            var currentFocus
+            function focusSsid(){
+                currentFocus = 'ssid'
+                keyboard.setInput(document.getElementById('ssid').value)
+            }
+            function focusPwd(){
+                currentFocus = 'pwd'               
+                keyboard.setInput(document.getElementById('pwd').value)
+
+            }
+        </script>
+        <script src="src/login.js"></script>
+
+    </body>
+</html>

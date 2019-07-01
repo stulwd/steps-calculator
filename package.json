@@ -1,0 +1,34 @@
+{
+  "name": "simple-keyboard-npm-demos",
+  "version": "1.0.0",
+  "description": "Javascript Virtual Keyboard for Kiosks, Mobile and Web",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "parcel build index.html",
+    "package-mac": "electron-packager . calculator --overwrite --platform=darwin --arch=x64 --icon=  --prune=true  --out=release-builds",
+    "package-win": "electron-packager .",
+    "package-linux": "electron-packager . calculator --overwrite --platform=linux --arch=x64 --icon=  --prune=true  --out=release-builds"
+  },
+  "dependencies": {
+    "mathlive": "^0.29.0",
+    "os-locale": "^4.0.0",
+    "python-shell": "^1.0.7",
+    "simple-keyboard": "latest",
+    "wifi-control": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "electron": "^5.0.5",
+    "electron-packager": "^13.1.1",
+    "electron-windows-store": "^2.1.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": [
+    "virtual",
+    "keyboard",
+    "onscreen",
+    "kiosk"
+  ]
+}

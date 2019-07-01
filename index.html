@@ -1,0 +1,79 @@
+<html lang="en">
+
+	<head>
+			<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+			<meta name="viewport" content="width=device-width, user-scalable=yes">
+		<link rel="stylesheet" href="src/input.css">
+		<link rel="stylesheet" href="src/container.css">
+		<link rel="stylesheet" href="src/flexkey.css">
+		<link rel="stylesheet" href="src/stablekey.css">
+
+		<link rel="stylesheet" href="node_modules/mathlive/dist/mathlive.core.css">
+		<link rel="stylesheet" href="node_modules/mathlive/dist/mathlive.css">
+
+		<script src="node_modules/mathlive/dist/mathlive.js"></script>
+		<script src="node_modules/simple-keyboard/build/index.js"></script>
+
+
+		<!-- <script src="https://cdn.staticfile.org/jquery/1.7.2/jquery.min.js"></script> -->
+		<!-- <link href="src/main.min.css" rel="Stylesheet" type="text/css"/> -->
+		<!-- <script type="text/javascript" src="src/main.min.js"></script> -->
+		<!-- <link href="src/steps.css" rel="Stylesheet" type="text/css"/>
+		<script src="src/steps.js"></script> -->
+	</head>
+
+<body>
+
+	<div id='mathfield' style="font-size:40px"></div>
+	<!-- <div id='steps' style="line-height:40%;width:100%; position:absolute; top:70px; bottom:485px; overflow:auto"></div> -->
+	<div id='steps' style="line-height:40%;width:100%;font-size:20px"></div>
+	<!-- <div id='solutionBox' style="width: 60px"></div> -->
+	<div class="container" id="container">
+		<div class="flexkey"></div>
+		<div class="stablekey"></div>
+	</div>
+	<script src="src/createMF.js">//initialize the area of mathfield </script>
+	<script src="src/index.js"></script>
+
+	<!-- <input type="text" />
+	<button>submit</button>
+	<div id="solution_div" style="width: 650px;"></div>
+	
+	<script type="text/javascript">
+		var i18n = function(code) {
+			return code;
+		};
+		var SYSTEPS = new SymbolabSteps();
+		var solutionDiv = $('#solution_div');
+
+		$("button").click(function(){
+			var query = $("input").val();
+			var http = require('http');  
+			var options = {  
+				hostname: 'demo.symbolab.com',  
+				// hostname: '172.104.55.210',
+				port: 80,  
+				path: '/demo?' + 'lang=zs&query=' + query,  
+				method: 'GET'  
+			};  
+			var req = http.request(options, function (res) {
+
+				res.on('data', function (chunk) { 
+					var chunk = eval("("+chunk+")");
+					solutionDiv.empty();
+					solutionDiv.append(SYSTEPS.createSolutionBox(chunk, true));
+					//SYSTEPS.mathquillifyVisible(solutionDiv);
+				});
+			});
+			req.on('error', function (e) {  
+				console.log('problem with request: ' + e.message);  
+			});  
+  			req.end();
+			
+		});
+
+	</script> -->
+
+</body>
+
+</html>
