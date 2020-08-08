@@ -45,24 +45,16 @@ let keyboard = new Keyboard({
   }
 });
 
-/**
- * Update simple-keyboard when input is changed directly
- */
-document.querySelector(".input").addEventListener("input", event => {
-  keyboard.setInput(event.target.value);
-});
 
 console.log(keyboard);
 
 function onChange(input) {
     if(currentFocus == 'ssid'){
-        document.getElementById('ssid').value = input;
-    }else{
-        document.getElementById('pwd').value = input;
+        document.getElementById('ssid').value += input;
+    }else if(currentFocus == 'pwd'){
+        document.getElementById('pwd').value += input;
     }
-
-
-  document.querySelector(".input").value = input;
+    keyboard.clearInput();
 }
 
 function onKeyPress(button) {
@@ -102,7 +94,7 @@ function handleLayoutChange(button) {
 
   if (layoutName) {
     keyboard.setOptions({
-      layoutName: layoutName
+       layoutName: layoutName
     });
   }
 }

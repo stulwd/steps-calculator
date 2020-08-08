@@ -18,13 +18,13 @@ function createWindow () {
   mainWindow.setFullScreen(true)
 
   // load logining wifi html
+  // Electron.loadFile.
   mainWindow.loadFile('login.html')
 
   ipcMain.on('isWifiConnected', (event, status)=>{
     if(status == true)
     // and load the index.html of the app.
-      mainWindow.loadFile('index.html')     
-      //mainWindow.loadFile('ymKeyboard.html')
+      mainWindow.loadFile('index.html')
   })
   
   

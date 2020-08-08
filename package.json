@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "browserIt": "C:\\\"Program Files (x86)\"\\Google\\Chrome\\Application\\chrome.exe ./index.html",
     "build": "parcel build index.html",
     "package-mac": "electron-packager . calculator --overwrite --platform=darwin --arch=x64 --icon=  --prune=true  --out=release-builds",
     "package-win": "electron-packager .",
